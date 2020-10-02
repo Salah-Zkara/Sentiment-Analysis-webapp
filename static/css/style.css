@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  overflow: auto;
+}
+.wrapper, .search-data{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.wrapper{
+  position: fixed;
+  height: 0px;
+  width: 0px;
+  border-radius: 100%;
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  transition: all 0.4s linear;
+}
+.wrapper.active{
+  height: 4000px;
+  width: 4000px;
+}
+.search-btn{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50%;
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+}
+.search-btn span{
+  color: #fff;
+  font-size: 22px;
+  line-height: 60px;
+}
+.search-data{
+  position: absolute;
+  height: 50px;
+  width: 400px;
+  display: flex;
+  text-align: center;
+  /* display: none; */
+}
+.search-data input{
+  position: absolute;
+  height: 100%;
+  width: 88%;
+  left: 0;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 22px;
+  font-weight: 500;
+  color: #fff;
+}
+.search-data .line{
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  bottom: 0;
+  transform: scaleX(0);
+  transition: transform 0.4s 0.3s linear;
+}
+.search-data .line.active{
+  transform: scaleX(1);
+}
+.search-data label{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  font-size: 20px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: rgba(255,255,255,0.7);
+}
+.search-data input:valid ~ label{
+  opacity: 0;
+}
+.search-data span{
+  color: #fff;
+  position: absolute;
+  width: 50px;
+  font-size: 25px;
+  right: 0;
+  top: 0;
+  line-height: 45px;
+  cursor: pointer;
+}
+
+.search-data, .search-data span,
+.search-data label{
+  display: none;
+}
+
+
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.text_field{
+  position: absolute;
+  color: white;
+  bottom: 350%;
+
+}

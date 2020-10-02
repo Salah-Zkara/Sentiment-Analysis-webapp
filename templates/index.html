@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sentiments Analysis</title>
+    <link rel="stylesheet" href="./static/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="./static/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./static/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./static/images/favicon-16x16.png">
+    <link rel="manifest" href="./static/images/site.webmanifest">
+  </head>
+  <body>
+
+    <form name="myForm" method="POST">
+      <div class="wrapper">
+        <div class="search-btn">
+          <span class="fas fa-angry"></span>
+          <span class="far fa-smile"></span>
+        </div>
+        <div class="search-data">
+          <div class="text_field">
+            <h1>Sentiments Analysis</h1>
+            <p>This website is going to help you determine the sentiments of a random text, Created Based on the Naive Baise Algorithm. It's Not accurate at 100%, but should do the job Hope you enjoy it. <br> Created By &copy;S.ZKARA ALL RIGHTS RESERVED </p>
+          </div>
+
+
+          <input name="myInpt" id="myInpt" type="text" required>
+          <div class="line">
+
+          </div>
+          <label>Type your sentence..</label>
+          <span type="submit" id="myBtn" class="fas fa-search"></span>
+        </div>
+      </div>
+    </form>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        {% if message == 0  %}
+        <p>Sentiments <font color="yellowgreen" > <b>Positive</b> </font> </p>
+        {% elif message  == 1 %}
+        <p>Sentiments <font color="red" > <b>Negative</b> </font> </p>
+        {% endif %}
+      </div>
+
+    </div>
+
+
+    <script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+      if (document.forms["myForm"]["myInpt"].value!= ""){
+        document.forms["myForm"].submit();
+      }
+      else{
+        fm=document.getElementById("myInpt")
+        fm.reportValidity()
+      }
+    }
+    var valid = {{valid}}
+    if (valid) {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    </script>
+
+
+    <script>
+      function MyFunc() {
+        $(".wrapper").addClass("active");
+            $(".search-btn").css("display", "none");
+            $(".search-data").fadeIn(500);
+            $(".search-data .line").addClass("active");
+            setTimeout(function(){
+              
+              $("input").focus();
+              $(".text_field").fadeIn(500);
+              $(".search-data label").fadeIn(500);
+              $(".search-data span").fadeIn(500);
+            }, 950);
+      }
+      window.onload = setTimeout(MyFunc,2500)
+    </script>
+
+  </body>
+</html>
