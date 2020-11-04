@@ -17,7 +17,8 @@ infile.close()
 
 def clear(sentence):
     language='english'
-    sentence_clean = re.sub('@[A-Za-z0–9]+', '', sentence)
+    sentence_clean = sentence.lower()
+    sentence_clean = re.sub('@[A-Za-z0–9]+', '', sentence_clean)
     sentence_clean = re.sub('https?:\/\/\S+', '', sentence_clean)
     sentence_clean = [char for char in sentence_clean if(char not in string.punctuation) ]
     sentence_clean = "".join(sentence_clean)
